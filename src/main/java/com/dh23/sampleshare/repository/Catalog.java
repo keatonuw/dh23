@@ -11,6 +11,6 @@ import java.util.List;
  */
 public interface Catalog extends JpaRepository<SampleData, Long> {
 
-    @Query(value = "SELECT * FROM table", nativeQuery = true)
+    @Query(value = "SELECT * FROM samples", nativeQuery = true)
     List<SampleData> getSamples();
 }
