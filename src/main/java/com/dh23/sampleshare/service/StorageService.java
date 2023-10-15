@@ -38,7 +38,7 @@ public class StorageService {
         }
         try {
             byte[] data = file.getBytes();
-            Blob blob = bucket.create(file.getName(), data);
+            Blob blob = bucket.create(file.getOriginalFilename(), data, "audio/*");
             log.info("Stored blob: {}", blob);
         } catch (IOException e) {
             throw new RuntimeException(e);
