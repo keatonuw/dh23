@@ -24,7 +24,8 @@ public class FileController {
     private final StorageService storage;
 
     @PostMapping("/upload/")
-    public String handleUpload(@RequestParam("file") MultipartFile file, RedirectAttributes attributes) {
+    public String handleUpload(@RequestParam("title") String title, @RequestParam("file") MultipartFile file, RedirectAttributes attributes) {
+        log.info("RECEIVED {}", title);
         storage.store(file);
         attributes.addFlashAttribute("message", "Uploaded!");
         return "redirect:/";
