@@ -10,6 +10,7 @@
     <!-- js -->
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src=""></script>
+    <script src="https://unpkg.com/htmx.org@1.9.6" integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="main-container">
@@ -18,94 +19,7 @@
                 <h1>categories</h1>
             </div>
         </div>
-        <div class="feed">
-            <div class="post first">
-                <div class="author">
-                    <img src="img/1.jpg">
-                    <h4 class="username">dj kitten</h4>
-                    <button class="follow">Follow</button>
-                </div>
-                <h2>best guitare rift u ever heard</h2>
-                <div class="content">
-                    <div class="soundplayer">
-                        <span class="play">▶</span>
-                        ..|.||.|..|.||..|||...|..|..
-                        <span class="time">0:16</span>
-                    </div>
-                    <div class="tags">
-                        <span>edm</span>
-                        <span>indie</span>
-                        <span>folk</span>
-                        <span>hardcore</span>
-                        <span>lullaby</span>
-                    </div>
-                    <span class="description">
-                        wow so cool what a sick guitare, right? i bet you love this and will sample it many times.
-                        please follow and like and subscribe and share and comment and donate and give me money and.
-                        thank you.
-                    </span>
-                </div>
-                <div class="interacts">
-                    <button class="button download">Download</button>
-                    <button class="button like">Like</button>
-                </div>
-            </div>
-            <div class="post">
-                <div class="author">
-                    <img src="img/1.jpg">
-                    <h4 class="username">swaglord</h4>
-                    <button class="follow">Follow</button>
-                </div>
-                <h2>Looney Tunes Type Snare #12</h2>
-                <div class="content">
-                    <div class="soundplayer">
-                        <span class="play">▶</span>
-                        ..|.||.|..|.||..|||...|..|..|||.|.|..||.|..
-                        <span class="time">0:22</span>
-                    </div>
-                    <div class="tags">
-                        <span>synth</span>
-                        <span>trapwave</span>
-                        <span>hypercore</span>
-                    </div>
-                    <span class="description">
-                        Check out this SICK new sample! It's good, it's gnarly, it's NUCLEAR.
-                        Sent from my iPhone.
-                        blahblah
-                        blahhashdhabsdhabsdabsjdbasjdbahjsbdhasbdjhasb djhasbdhabsdjhabshjdbashdbashjdbahsdbahsbdhasd
-                    </span>
-                </div>
-                <div class="interacts">
-                    <button class="button download">Download</button>
-                    <button class="button like">Like</button>
-                </div>
-            </div>
-            <div class="post last">
-                <div class="author">
-                    <img src="img/1.jpg">
-                    <h4 class="username">winston overwatch</h4>
-                    <button class="follow">Follow</button>
-                </div>
-                <h2>me_dying.mp4</h2>
-                <div class="content">
-                    <div class="soundplayer">
-                        <span class="play">▶</span>
-                        ..|.||.|..|.||..||..
-                        <span class="time">0:05</span>
-                    </div>
-                    <div class="tags">
-                        <span>overwatch</span>
-                        <span>scientist</span>
-                    </div>
-                    <span class="description">
-                        winton noise from overwatch the video game by activison blizzard
-                    </span>
-                </div>
-                <div class="interacts">
-                    <button class="button download">Download</button>
-                    <button class="button like">Like</button>
-                </div>
-            </div>
+        <div class="feed" hx-get="/feed/0" hx-trigger="load" hx-target="this" hx-swap="innerHTML">
         </div>
         <div class="explore panel">
             <div class="trend-container">
