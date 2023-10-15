@@ -26,9 +26,7 @@
             <span class="time">0:22</span>
         </div>
         <div class="tags">
-            <span>synth</span>
-            <span>trapwave</span>
-            <span>hypercore</span>
+            <span th:each="tag : ${sample.getTags()}" th:text="${tag}"></span>
         </div>
         <span class="description" th:text="${sample.description}">
                         Check out this SICK new sample! It's good, it's gnarly, it's NUCLEAR.

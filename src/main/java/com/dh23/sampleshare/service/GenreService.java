@@ -2,6 +2,7 @@ package com.dh23.sampleshare.service;
 
 import com.dh23.sampleshare.model.SampleData;
 import com.dh23.sampleshare.repository.Catalog;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Slf4j
 public class GenreService {
 
     private Graph graph;  // set me up in CTOR
@@ -23,8 +25,8 @@ public class GenreService {
         g.add("Metal", "Rock");
         g.add("Shoegaze", "Rock");
         g.add("Alternative Rock", "Rock");
-        g.add("Grunge, Alternative Rock");
-        g.add("Indie Rock, Rock");
+        g.add("Grunge", "Alternative Rock");
+        g.add("Indie Rock", "Rock");
         List<String> noiseParents = new ArrayList<>();
         noiseParents.add("Pop");
         noiseParents.add("Indie Rock");
@@ -50,6 +52,11 @@ public class GenreService {
         g.add("PluggNB", "Plugg");
         g.add("Drill", "Trap");
         g.add("Chicago Drill", "Drill");
+        graph = g;
+    }
+
+    public List<String> getRootGenres() {
+        return graph.getMainGenres();
     }
 
     // return all sampledata that are of genre or one of it subgenre
@@ -58,9 +65,19 @@ public class GenreService {
         return catalog.findSampleByGenre(n);
     }
 
-    List<SampleData> getRelatedGenres(String genre) {
+    public List<SampleData> getRelatedGenres(String genre) {
+        // super hacky lol
+        if (genre.equals("root")) {
+            return catalog.getSamples();
+        }
         List<String> n = graph.getRelated(genre);
+        n.add(genre);
+        log.info("GENRES={}", n);
         return catalog.findSampleByGenre(n);
+    }
+
+    public List<String> getRelated(String genre) {
+        return graph.getRelated(genre);
     }
 
     List<SampleData> getAllSamples(String genre) {

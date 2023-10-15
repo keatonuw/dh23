@@ -109,7 +109,6 @@ public class Graph {
 
     public List<String> getRelated(String parent){
         List<String> result = new ArrayList<>();
-        result.add(parent);
         if (!chooseGenre.contains(parent)){
             return result;
         }
@@ -127,6 +126,23 @@ public class Graph {
                         result.add(subgenre.getName());
                     }
                 }
+        return result;
+    }
+
+    public List<String> getMainGenres(){
+        List<String> result = new ArrayList<>();
+        List<String> offshoots = new ArrayList<>();
+        for (Vertex v : graph){
+            List<String> subgenres = v.getSubgenres();
+            for(String subgenre : subgenres){
+                offshoots.add(subgenre);
+            }
+        }
+        for(Vertex v : graph){
+            if(!offshoots.contains(v.getName())){
+                result.add(v.getName());
+            }
+        }
         return result;
     }
 }

@@ -18,6 +18,7 @@
         <div class="filters panel">
             <div class="col-12">
                 <h1>categories</h1>
+                <div hx-get="/genres/root" hx-trigger="load" hx-target="this" hx-swap="innerHTML"></div>
             </div>
         </div>
         <div class="feed" hx-get="/feed/0" hx-trigger="load" hx-target="this" hx-swap="innerHTML">

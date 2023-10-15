@@ -17,7 +17,7 @@ public interface Catalog extends JpaRepository<SampleData, Long> {
     List<SampleData> getSamples();
 
     @Query(value = "SELECT * FROM samples WHERE genre in :genres", nativeQuery = true)
-    List<SampleData> findSampleByGenre(@Param("genre") List<String> genres);
+    List<SampleData> findSampleByGenre(@Param("genres") List<String> genres);
 
     @Query(value = "SELECT * FROM samples WHERE tag = :tag", nativeQuery = true)
     List<SampleData> findSampleByTag(@Param("tag") String tag);

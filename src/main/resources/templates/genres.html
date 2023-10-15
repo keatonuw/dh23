@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<span hx-trigger="load once" th:hx-get="|/feed/filter/${root}|" hx-swap="innerHTML" hx-target="next .feed"></span>
+
+<ul class="subgenres" th:each="genre : ${genres}">
+  <li hx-trigger="click once" th:hx-get="|/genres/${genre}|" hx-swap="outerHTML" hx-target="find .subgenres">
+      <p th:text="${genre}"></p>
+      <span class="subgenres"></span>
+  </li>
+</ul>
+
+</body>
+</html>
