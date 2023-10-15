@@ -38,7 +38,10 @@
                     </span>
     </div>
     <div class="interacts">
-        <a class="button download" th:href="${sample.filename}">Download</a>
+        <a class="button download" th:href="${sample.filename}">
+            <img src="img/download.svg" alt="download this sample" class="icon">
+            Download
+        </a>
         <button class="button like">Like</button>
     </div>
 </div>
