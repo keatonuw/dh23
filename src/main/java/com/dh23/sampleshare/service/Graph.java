@@ -118,8 +118,6 @@ public class Graph {
             visited.put(g, false);
         }
         Vertex s = getVertex(parent);
-        List<Vertex> queue = new ArrayList<>();
-        queue.add(s);
         visited.put(s, true);
                 List<String> subgenres = s.getSubgenres();
                 for(String n : subgenres) {

@@ -22,6 +22,6 @@ public class SampleData {
     public String description;
     public String genre;
     public String filename;
-
+    public String tag;
 
 }
