@@ -1,3 +1,15 @@
+/* make h1 text pink */
+h1 {
+    color: pink;
+}
+
+/* 
+3e744d
+072a11
+234830
+232a28
+*/
+
 body {
     background-color: #131313;
     font-family: "Open Sans", sans-serif;
@@ -18,16 +30,39 @@ body {
 
 .panel {
     background-color: #393939;
+    /* border: 1px solid #ddd; */
     border-radius: 5px;
+    /* box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05); */
     margin: 10px;
     padding: 20px;
     width: 30%;
-    height: 40%;
+    max-height: 80%;
+}
+
+/* using after to create a decorative line beneath this */
+.trend-container h2 {
+    color: #e9e9e9;
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 0.025rem;
+    margin: 0 0 1rem 0;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+.trend-container h2:after {
+    content: "";
+    display: block;
+    border-bottom: 1px solid #606060;
 }
 
 .feed {
     background-color: #303030;
+    /* border: 1px solid #ddd; */
     border-radius: 5px;
+    /* box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05); */
     margin: 10px 0;
     padding: 12px 8px;
     width: 100%;
@@ -47,8 +82,10 @@ body {
 
 .post {
     background-color: #464646;
+    /* border: 1px solid #ddd; */
 
     border-bottom: #606060 1px solid;
+    /* box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05); */
     padding: 0 15px;
 
     display: grid;
@@ -120,6 +157,8 @@ body {
 }
     
 .author {
+    /* border: 1px solid #ddd; */
+    /* box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05); */
     display: flex;
     align-items: center;
     grid-area: 1 / 1 / 2 / 2;
@@ -132,16 +171,29 @@ body {
 }
 
 .author .follow {
-    background-color: #3386de;
-    border: 1px solid #5d8ed8;
-    color: #8adeff;
+    background-color: #5682b1;
+    border: 1px solid #659beb;
+    color: #2eccfc;
     cursor: pointer;
     border-radius: 8px;
+    /* box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05); */
     color: #ffffffc3;
     cursor: pointer;
     font-size: 14px;
     margin: 0 8px;
-    padding: 2px 5px;
+    padding: 4px 12px;
+
+    transition-property: all;
+    transition-duration: 0.05s;
+    transition-timing-function: ease-in-out;
+
+}
+
+.author .follow:hover {
+    background-color: #1c67b8;
+    border: #318df0 1px solid;
+    color: #e3fcff;
+    /* font-weight: 600; */
 }
 
 .author h4 {
@@ -166,11 +218,27 @@ body {
 }
 
 .tags span {
+    /* background-color: #595959; */
+    /* color: #b3b3b3; */
     border-radius: 50px;
     padding: 2px 5px;
 
     background-color: #343434;
     color: #858585;
+
+    cursor: pointer;
+    transition-property: all;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+
+    border: #404040 1px solid;
+
+}
+
+.tags span:hover {
+    background-color: #2e3944;
+    border: #5f6468 1px solid;
+    color: #dde2e3;
 }
 
 .content {
@@ -190,6 +258,7 @@ body {
     background-color: #64646400;
     border: 1px solid #dddddd00;
     border-radius: 15px;
+    /* box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05); */
     color: #ffffffc3;
     cursor: pointer;
     font-size: 14px;
@@ -198,8 +267,32 @@ body {
     width: 4rem;
 }
 
+.tags[class~="side"] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.tags[class~="side"] span {
+    background-color: #324c8d;
+    color: hsl(219, 93%, 82%);
+    border: #2a6aaf 1px solid;
+}
+
+.tags[class~="side"] span:hover {
+    background-color: #1c67b8;
+    border: #318df0 1px solid;
+    color: #e3fcff;
+}
+
+.explore {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.5rem;
+}
+
 .interacts button[class~="download"] {
-    /* todo: fix this bounding box */
+    /* todo: fix this */
     padding: 2px 0px;
 }
 
