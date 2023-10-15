@@ -6,14 +6,14 @@
 </head>
 <body>
 
-<span hx-trigger="load once" th:hx-get="|/feed/filter/${root}|" hx-swap="innerHTML" hx-target="next .feed"></span>
+<div hx-trigger="load once" th:hx-get="|/feed/filter/${root}|" hx-swap="innerHTML" hx-target="next .feed"></div>
 
-<ul class="subgenres" th:each="genre : ${genres}">
-  <li hx-trigger="click once" th:hx-get="|/genres/${genre}|" hx-swap="outerHTML" hx-target="find .subgenres">
+<div class="subgenres" th:each="genre : ${genres}">
+  <div hx-trigger="click once" th:hx-get="|/genres/${genre}|" hx-swap="outerHTML" hx-target="find .subgenres">
       <p th:text="${genre}"></p>
-      <span class="subgenres"></span>
-  </li>
-</ul>
+      <div class="subgenres"></div>
+  </div>
+</div>
 
 </body>
 </html>

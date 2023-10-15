@@ -568,3 +568,14 @@ color: #e3fcff; */
 .upload-form .tag-box input {
     width: 85%;
 }
+
+.filters {
+    color: #dde2e3;
+}
+
+.subgenres, .subgenres > p {
+    margin-left: 8px;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+}
