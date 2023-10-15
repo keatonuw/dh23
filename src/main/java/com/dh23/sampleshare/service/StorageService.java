@@ -25,11 +25,11 @@ public class StorageService {
     String creds = "/Users/keatonkowal/Documents/certs/carbon-pride-402022-a6ee1334f217.json";
 
     public StorageService() throws IOException {
-        storage = StorageOptions.newBuilder()
+        /*storage = StorageOptions.newBuilder()
                 .setProjectId(projectName)
                 .setCredentials(GoogleCredentials.fromStream(new FileInputStream(creds)))
                 .build().getService();
-        bucket = storage.get(bucketName);
+        bucket = storage.get(bucketName);*/
     }
 
     public void store(MultipartFile file) {
