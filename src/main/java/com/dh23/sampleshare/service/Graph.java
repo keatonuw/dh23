@@ -75,11 +75,11 @@ public class Graph {
         return chooseGenre.size();
     }
 
-    public String getAllSubgenres(String parent){
+    public List<String> getAllSubgenres(String parent){
         List<String> result = new ArrayList<>();
         result.add(parent);
         if (!chooseGenre.contains(parent)){
-            return "";
+            return result;
         }
         HashMap<Vertex, Boolean> visited = new HashMap<Vertex, Boolean>();
         for(Vertex g : graph){
@@ -104,11 +104,7 @@ public class Graph {
             }
             queue = newLayer;
         }
-        String sql = parent;
-        for(int i = 1; i < result.size(); i++){
-            sql += " AND " + result.get(i);
-        }
-        return sql;
+        return result;
     }
 
     public List<String> getRelated(String parent){
