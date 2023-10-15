@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import java.util.List;
 
 @Entity
 @Builder
@@ -23,5 +24,9 @@ public class SampleData {
     public String genre;
     public String filename;
     public String tag;
+
+    public List<String> getTags() {
+        return List.of(tag, genre);
+    }
 
 }
