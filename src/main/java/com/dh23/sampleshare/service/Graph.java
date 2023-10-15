@@ -129,4 +129,21 @@ public class Graph {
                 }
         return result;
     }
+
+    public List<String> getMainGenres(){
+        List<String> result = new ArrayList<>();
+        List<String> offshoots = new ArrayList<>();
+        for (Vertex v : graph){
+            List<String> subgenres = v.getSubgenres();
+            for(String subgenre : subgenres){
+                offshoots.add(subgenre);
+            }
+        }
+        for(Vertex v : graph){
+            if(!offshoots.contains(v.getName())){
+                result.add(v.getName());
+            }
+        }
+        return result;
+    }
 }
