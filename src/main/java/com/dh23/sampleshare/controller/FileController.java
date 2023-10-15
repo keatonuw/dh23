@@ -1,5 +1,6 @@
 package com.dh23.sampleshare.controller;
 
+import com.dh23.sampleshare.model.SampleData;
 import com.dh23.sampleshare.service.StorageService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,9 +25,19 @@ public class FileController {
     private final StorageService storage;
 
     @PostMapping("/upload/")
-    public String handleUpload(@RequestParam("title") String title, @RequestParam("file") MultipartFile file, RedirectAttributes attributes) {
+    public String handleUpload(@RequestParam("title") String title,
+                               @RequestParam("author") String author,
+                               @RequestParam("desc") String desc,
+                               @RequestParam("genre") String genre,
+                               @RequestParam("tag") String tag,
+                               @RequestParam("file") MultipartFile file, RedirectAttributes attributes) {
         log.info("RECEIVED {}", title);
-        storage.store(file);
+        SampleData.SampleDataBuilder data = SampleData.builder()
+                .author(author)
+                .description(desc)
+                .genre(genre)
+                .tag(tag);
+        storage.store(data, file);
         attributes.addFlashAttribute("message", "Uploaded!");
         return "redirect:/";
     }

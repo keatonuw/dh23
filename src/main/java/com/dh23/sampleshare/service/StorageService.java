@@ -49,7 +49,7 @@ public class StorageService {
         return catalog.findAll();
     }
 
-    public void store(MultipartFile file) {
+    public void store(SampleData.SampleDataBuilder builder, MultipartFile file) {
         if (file.isEmpty()) {
             throw new IllegalStateException("Can't save empty file");
         }
@@ -58,13 +58,7 @@ public class StorageService {
             Blob blob = bucket.create(file.getOriginalFilename(), data, "audio/*");
             log.info("Stored blob: {}", blob);
 
-            SampleData sd = SampleData.builder()
-                    .author("TODO")
-                    .title(file.getOriginalFilename())
-                    .genre("TODO")
-                    .description("TODO")
-                    .filename(blob.getMediaLink())
-                    .build();
+            SampleData sd = builder.title(file.getOriginalFilename()).filename(blob.getMediaLink()).build();
 
             catalog.save(sd);
 

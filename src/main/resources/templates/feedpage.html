@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-<div class="" hx-get="/upload/" hx-trigger="click" hx-swap="innerHTML" hx-target="this">
+<div class="" hx-get="/upload/" hx-trigger="click" hx-swap="outerHTML" hx-target="this">
    <p>Upload</p>
 </div>
 <div th:each="sample : ${samples}">
