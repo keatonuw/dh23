@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div th:each="sample : ${samples}">
+<div class="post">
+    <div class="author">
+        <img src="img/1.jpg">
+        <h4 class="username" th:text="${sample.author}">swaglord</h4>
+        <button class="follow">Follow</button>
+    </div>
+    <h2 th:text="${sample.title}">Looney Tunes Type Snare #12</h2>
+    <div class="content">
+        <div class="soundplayer">
+            <span class="play" hx-trigger="click" hx-target="this" th:hx-get="|/play/${sample.id}|" hx-swap="innerHTML">▶</span>
+            ..|.||.|..|.||..|||...|..|..|||.|.|..||.|..
+            <span class="time">0:22</span>
+        </div>
+        <div class="tags">
+            <span>synth</span>
+            <span>trapwave</span>
+            <span>hypercore</span>
+        </div>
+        <span class="description" th:text="${sample.description}">
+                        Check out this SICK new sample! It's good, it's gnarly, it's NUCLEAR.
+                        Sent from my iPhone.
+                        blahblah
+                        blahhashdhabsdhabsdabsjdbasjdbahjsbdhasbdjhasb djhasbdhabsdjhabshjdbashdbashjdbahsdbahsbdhasd
+                    </span>
+    </div>
+    <div class="interacts">
+        <a class="button download" th:href="${sample.filename}">Download</a>
+        <button class="button like">Like</button>
+    </div>
+</div>
+</div>
+</body>
+</html>
